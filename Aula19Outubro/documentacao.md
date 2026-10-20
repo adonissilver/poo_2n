@@ -1,84 +1,61 @@
-🎓 Sistema de Gestão Acadêmica
-Documentação de Validação dos Dados
-Tecnologias: Python · Arquivos TXT
-Objetivo: Definir as regras de validação dos dados utilizados no sistema de gestão acadêmica, garantindo integridade, consistência e confiabilidade dos registros.
-📑 Sumário
-👥 1. Equipe ALFA — Alunos e Cursos
-Aluno
-Curso
-👨‍🏫 2. Equipe BETA — Professores e Disciplinas
-Professor
-Disciplina
-🛡️ 3. Regras Gerais de Validação
-✅ 4. Conclusão
-👥 1. Equipe ALFA — Alunos e Cursos
-🧑‍🎓 Classe Aluno
-Campo	Tipo de dado	Regra de validação
-Matrícula	str	De 6 a 12 dígitos numéricos, sem duplicidade.
-Nome	str	Entre 3 e 100 caracteres.
-CPF	str	Exatamente 11 dígitos numéricos e CPF válido.
-E-mail	str	Deve possuir formato válido, como aluno@email.com.
-Código do Curso	int	Deve ser maior que zero e corresponder a um curso cadastrado.
-📚 Classe Curso
-Campo	Tipo de dado	Regra de validação
-Código do Curso	int	Deve ser maior que zero e não pode se repetir.
-Nome	str	Entre 3 e 100 caracteres.
-Modalidade	str	Aceitar somente Presencial ou EAD.
-👨‍🏫 2. Equipe BETA — Professores e Disciplinas
-👨‍💼 Classe Professor
-Campo	Tipo de dado	Regra de validação
-Código do Professor	int	Deve ser maior que zero e não pode se repetir.
-Nome	str	Entre 3 e 100 caracteres.
-CPF	str	Exatamente 11 dígitos numéricos e CPF válido.
-Especialidade	str	Entre 3 e 80 caracteres.
-📝 Classe Disciplina
-Campo	Tipo de dado	Regra de validação
-Código da Disciplina	int	Deve ser maior que zero e não pode se repetir.
-Nome	str	Entre 3 e 100 caracteres.
-Carga Horária	int	Deve estar entre 1 e 1.000 horas.
-Código do Professor	int	Deve ser maior que zero e corresponder a um professor cadastrado.
-Código do Curso	int	Deve ser maior que zero e corresponder a um curso cadastrado.
-🛡️ 3. Regras Gerais de Validação
+# 🎓 Sistema de Gestão Acadêmica
 
-Todos os módulos do sistema devem seguir as regras abaixo:
+## 📋 Documentação de Validação dos Dados
 
-Campos obrigatórios: nenhum campo pode ficar vazio.
-Integridade dos registros: matrículas e códigos não podem ser duplicados.
-Validação de CPF: o documento deve conter 11 dígitos e passar pela validação dos dígitos verificadores.
-Validação de e-mail: o endereço deve respeitar um formato válido.
-Relacionamentos: os códigos de curso e professor devem corresponder a registros previamente cadastrados.
-Modalidade do curso: aceitar exclusivamente Presencial ou EAD.
-Validação de tipos: os campos numéricos devem aceitar apenas valores inteiros quando especificado.
-Validação de limites: nomes, especialidades, matrículas e cargas horárias devem respeitar os limites definidos nas tabelas.
-Persistência segura: os dados devem ser validados antes de serem gravados nos arquivos.
-Padronização dos arquivos: os registros devem ser armazenados em arquivos .txt, utilizando ponto e vírgula (;) como separador de campos.
-📂 Padrão de armazenamento
+**Tecnologias:** Python · Arquivos TXT
 
-Os arquivos de texto devem utilizar o seguinte formato:
+**Objetivo:** Documentar as regras de validação dos dados do sistema.
 
-campo1;campo2;campo3;campo4
+---
 
+## 📑 Sumário
 
-Exemplo — cursos.txt:
+1. [Equipe ALFA — Alunos e Cursos](#-1-equipe-alfa--alunos-e-cursos)
+2. [Equipe BETA — Professores e Disciplinas](#-2-equipe-beta--professores-e-disciplinas)
+3. [Regras Gerais](#-3-regras-gerais)
+4. [Conclusão](#-4-conclusão)
 
-101;Análise e Desenvolvimento de Sistemas;Presencial
-102;Sistemas de Informação;EAD
+---
 
-Importante: como o ponto e vírgula é o delimitador oficial, todos os módulos devem utilizá-lo de maneira consistente na leitura e na gravação dos arquivos.
-✅ 4. Conclusão
+## 👥 1. Equipe ALFA — Alunos e Cursos
 
-A implementação das regras de validação é fundamental para garantir a qualidade e a integridade dos dados do Sistema de Gestão Acadêmica.
+### 🧑‍🎓 Classe Aluno
 
-A divisão das responsabilidades entre as equipes ALFA e BETA permite organizar o desenvolvimento dos módulos de alunos, cursos, professores e disciplinas, mantendo um padrão comum de validação e armazenamento.
+| Campo | Tipo | Validação |
+|---|---|---|
+| Matrícula | `str` | De 6 a 12 dígitos, sem duplicidade. |
+| Nome | `str` | De 3 a 100 caracteres. |
+| CPF | `str` | CPF válido com 11 dígitos. |
 
-Com essas diretrizes, o sistema busca:
+### 📚 Classe Curso
 
-🔒 Evitar registros inválidos ou duplicados.
-🔗 Garantir a consistência dos relacionamentos entre entidades.
-📋 Padronizar a entrada e o armazenamento dos dados.
-🧩 Facilitar a manutenção e a integração entre os módulos.
-✅ Melhorar a confiabilidade das informações acadêmicas.
+| Campo | Tipo | Validação |
+|---|---|---|
+| Código | `int` | Maior que zero, sem duplicidade. |
+| Nome | `str` | De 3 a 100 caracteres. |
+| Modalidade | `str` | `Presencial` ou `EAD`. |
 
-Resultado esperado: um sistema organizado, consistente e confiável, com validação dos dados antes de qualquer gravação nos arquivos .txt.
+---
 
-📌 Projeto acadêmico desenvolvido em Python, com persistência de dados em arquivos de texto.
+## 👨‍🏫 2. Equipe BETA — Professores e Disciplinas
+
+Documentação das regras de validação de professores e disciplinas.
+
+---
+
+## 🛡️ 3. Regras Gerais
+
+- Nenhum campo obrigatório pode ficar vazio.
+- Códigos e matrículas não podem se repetir.
+- CPF e e-mail devem ser válidos.
+- Os dados devem ser validados antes de serem salvos.
+
+---
+
+## ✅ 4. Conclusão
+
+O sistema busca garantir dados consistentes, confiáveis e organizados.
+
+---
+
+📌 **Projeto acadêmico desenvolvido em Python, com arquivos TXT.**
