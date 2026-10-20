@@ -1,1 +1,59 @@
+# Documentação de Validação dos Dados
+
+## Sistema de Gestão Acadêmica — Python + TXT
+
+### 1. Equipe ALFA — Alunos e Cursos
+
+**Classe Aluno**
+
+| Campo           | Tipo            | Regra de validação                                   |
+| --------------- | --------------- | ---------------------------------------------------- |
+| Matrícula       | Texto (`str`)   | De 6 a 12 números, sem repetir.                      |
+| Nome            | Texto (`str`)   | De 3 a 100 caracteres.                               |
+| CPF             | Texto (`str`)   | 11 números, com CPF válido.                          |
+| E-mail          | Texto (`str`)   | Deve possuir formato válido, como `aluno@email.com`. |
+| Código do Curso | Inteiro (`int`) | Maior que zero e deve existir.                       |
+
+**Classe Curso**
+
+| Campo           | Tipo            | Regra de validação                     |
+| --------------- | --------------- | -------------------------------------- |
+| Código do Curso | Inteiro (`int`) | Maior que zero, sem repetir.           |
+| Nome            | Texto (`str`)   | De 3 a 100 caracteres.                 |
+| Modalidade      | Texto (`str`)   | Aceitar somente `Presencial` ou `EAD`. |
+
+### 2. Equipe BETA — Professores e Disciplinas
+
+**Classe Professor**
+
+| Campo               | Tipo            | Regra de validação           |
+| ------------------- | --------------- | ---------------------------- |
+| Código do Professor | Inteiro (`int`) | Maior que zero, sem repetir. |
+| Nome                | Texto (`str`)   | De 3 a 100 caracteres.       |
+| CPF                 | Texto (`str`)   | 11 números, com CPF válido.  |
+| Especialidade       | Texto (`str`)   | De 3 a 80 caracteres.        |
+
+**Classe Disciplina**
+
+| Campo                | Tipo            | Regra de validação             |
+| -------------------- | --------------- | ------------------------------ |
+| Código da Disciplina | Inteiro (`int`) | Maior que zero, sem repetir.   |
+| Nome                 | Texto (`str`)   | De 3 a 100 caracteres.         |
+| Carga Horária        | Inteiro (`int`) | Entre 1 e 1.000 horas.         |
+| Código do Professor  | Inteiro (`int`) | Maior que zero e deve existir. |
+| Código do Curso      | Inteiro (`int`) | Maior que zero e deve existir. |
+
+### 3. Regras gerais
+
+* Nenhum campo obrigatório pode ficar vazio.
+* Códigos e matrículas não podem ser duplicados.
+* CPF e e-mail devem ser válidos.
+* Os códigos de curso e professor devem corresponder a registros cadastrados.
+* A modalidade do curso deve ser `Presencial` ou `EAD`.
+* Os dados devem ser validados antes de serem salvos nos arquivos `.txt`.
+* Os arquivos devem utilizar ponto e vírgula (`;`) para separar os campos.
+
+### 4. Conclusão
+
+Essas validações ajudam a evitar dados incorretos ou duplicados, garantindo que as informações sejam armazenadas corretamente e que os módulos das equipes ALFA e BETA funcionem em conjunto.
 
